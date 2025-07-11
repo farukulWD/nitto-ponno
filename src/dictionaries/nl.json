@@ -1,5 +1,20 @@
 {
   "products": {
     "cart": "Toevoegen aan Winkelwagen"
+  },
+  "aboutPage": {
+    "title": "Over ons",
+    "description": "Over de bedrijf",
+    "content": "Over de bedrijf"
+  },
+  "common": {
+    "themeSwitch": "Thema Switch",
+    "light": "Licht",
+    "dark": "Donker",
+    "system": "Systeem"
+  },
+  "navbar": {
+    "home": "Home",
+    "about": "Over ons"
   }
 }

@@ -1,15 +1,21 @@
 import React from "react";
 import Link from "next/link";
-import LangSwitcher from "./LangSwitcher";
+import { LangSwitcher } from "./LangSwitcher";
+import { getDictionary } from "@/dictionaries/dictionaries";
+import { ThemeSwitch } from "../common/theme-switch";
 
-export default function Navbar({ lang }: { lang: string }) {
+export default async function Navbar({ lang }: { lang: "en" | "nl" }) {
+  const dict = await getDictionary(lang);
   return (
     <nav className="flex items-center justify-between p-4 border-b">
       <div className="flex gap-4">
-        <Link href={`/${lang}`}>Home</Link>
-        {/* Add more nav links here */}
+        <Link href={`/${lang}`}>{dict.navbar.home}</Link>
+        <Link href={`/${lang}/about`}>{dict.navbar.about}</Link>
       </div>
-      <LangSwitcher lang={lang} />
+      <div className="flex gap-4">
+        <ThemeSwitch />
+        <LangSwitcher lang={lang} />
+      </div>
     </nav>
   );
-} 
+}

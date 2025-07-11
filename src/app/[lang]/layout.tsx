@@ -1,14 +1,14 @@
 import React from "react";
 import Navbar from "@/components/ui/Navbar";
 
-export default function LangLayout({
+export default async function LangLayout({
   children,
   params,
 }: {
   children: React.ReactNode;
-  params: { lang: string };
+  params: Promise<{ lang: "en" | "nl" }>;
 }) {
-  const { lang } = params;
+  const { lang } = await params;
 
   return (
     <>
