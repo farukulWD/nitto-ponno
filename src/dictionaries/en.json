@@ -1,5 +1,20 @@
 {
   "products": {
     "cart": "Add to Cart"
+  },
+  "aboutPage": {
+    "title": "About Us",
+    "description": "About the company",
+    "content": "About the company"
+  },
+  "common": {
+    "themeSwitch": "Theme Switch",
+    "light": "Light",
+    "dark": "Dark",
+    "system": "System"
+  },
+  "navbar": {
+    "home": "Home",
+    "about": "About"
   }
 }
