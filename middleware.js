@@ -1,6 +1,8 @@
 import { NextResponse } from "next/server";
+import { getExtendedLocales, getLanguageConfig, isValidLocale } from "./src/types/language";
 
-let locales = ["en-US", "nl-NL", "nl"];
+// Get supported locales from our language configuration
+const locales = getExtendedLocales();
 
 // Get the preferred locale, similar to the above or using a library
 function getLocale(request) {

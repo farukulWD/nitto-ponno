@@ -1,12 +1,13 @@
 import React from "react";
-import Navbar from "@/components/ui/Navbar";
+import type { Locale } from "@/types/language";
+import Navbar from "@/components/common/Navbar";
 
 export default async function LangLayout({
   children,
   params,
 }: {
   children: React.ReactNode;
-  params: Promise<{ lang: "en" | "nl" }>;
+  params: Promise<{ lang: Locale }>;
 }) {
   const { lang } = await params;
 
