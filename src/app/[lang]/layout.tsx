@@ -1,6 +1,7 @@
 import React from "react";
 import type { Locale } from "@/types/language";
 import Navbar from "@/components/common/Navbar";
+import MainProvider from "@/providers/main-provider";
 
 export default async function LangLayout({
   children,
@@ -12,9 +13,9 @@ export default async function LangLayout({
   const { lang } = await params;
 
   return (
-    <>
+    <MainProvider>
       <Navbar lang={lang} />
-      <main>{children}</main>
-    </>
+      {children}
+    </MainProvider>
   );
 }

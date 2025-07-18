@@ -12,7 +12,6 @@ import {
   Sun,
 } from "lucide-react";
 import { useTheme } from "next-themes";
-
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import {
@@ -27,6 +26,7 @@ import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { LangSwitcher } from "./LangSwitcher";
 import { Locale } from "@/types/language";
 import { ThemeSwitch } from "./theme-switch";
+import Image from "next/image";
 
 export default function Navbar({ lang }: { lang: Locale }) {
   const [isSearchOpen, setIsSearchOpen] = useState(false);
@@ -45,10 +45,7 @@ export default function Navbar({ lang }: { lang: Locale }) {
       <div className="container flex h-16 items-center justify-between px-4">
         {/* Logo */}
         <Link href="/" className="flex items-center space-x-2">
-          <div className="h-8 w-8 rounded-lg bg-primary flex items-center justify-center">
-            <span className="text-primary-foreground font-bold text-lg">S</span>
-          </div>
-          <span className="font-bold text-xl">StyleHub</span>
+          <Image src={"/logo.svg"} height={20} width={20} alt="nitto-ponno" />
         </Link>
 
         {/* Desktop Navigation */}
@@ -153,15 +150,15 @@ export default function Navbar({ lang }: { lang: Locale }) {
                 <span className="sr-only">Menu</span>
               </Button>
             </SheetTrigger>
-            <SheetContent side="right" className="w-[300px] sm:w-[400px]">
+            <SheetContent side="right" className="w-[300px] p-4 sm:w-[400px]">
               <div className="flex flex-col space-y-4 mt-6">
                 <div className="flex items-center space-x-2 pb-4 border-b">
-                  <div className="h-8 w-8 rounded-lg bg-primary flex items-center justify-center">
-                    <span className="text-primary-foreground font-bold text-lg">
-                      S
-                    </span>
-                  </div>
-                  <span className="font-bold text-xl">StyleHub</span>
+                  <Image
+                    src={"/logo.svg"}
+                    height={20}
+                    width={20}
+                    alt="nitto-ponno"
+                  />
                 </div>
 
                 <nav className="flex flex-col space-y-4">
