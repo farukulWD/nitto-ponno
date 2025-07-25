@@ -24,11 +24,10 @@ import {
 import { Badge } from "@/components/ui/badge";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { LangSwitcher } from "./LangSwitcher";
-import { Locale } from "@/types/language";
 import { ThemeSwitch } from "./theme-switch";
 import Image from "next/image";
 
-export default function Navbar({ lang }: { lang: Locale }) {
+export default function Navbar() {
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const { theme, setTheme } = useTheme();
 
@@ -87,7 +86,7 @@ export default function Navbar({ lang }: { lang: Locale }) {
           </Button>
 
           {/* Language Switcher */}
-          <LangSwitcher lang={lang} />
+          <LangSwitcher />
 
           {/* Theme Switcher */}
           <ThemeSwitch />
@@ -200,7 +199,7 @@ export default function Navbar({ lang }: { lang: Locale }) {
                   </div>
 
                   {/* Language Switcher */}
-                  <LangSwitcher lang={lang} />
+                  <LangSwitcher />
                 </div>
 
                 <div className="pt-4 border-t">

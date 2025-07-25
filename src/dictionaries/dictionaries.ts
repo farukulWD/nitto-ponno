@@ -1,4 +1,3 @@
-import "server-only";
 import type { Locale, Dictionary, Dictionaries } from "../types/language";
 
 const dictionaries: Dictionaries = {

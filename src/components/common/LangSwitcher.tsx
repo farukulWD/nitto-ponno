@@ -8,16 +8,12 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { useState } from "react";
-import { useRouter, usePathname } from "next/navigation";
 import { motion } from "motion/react";
 import { LANGUAGES, Locale } from "@/types/language";
+import { useLanguage } from "@/providers/language-provider";
 
-export function LangSwitcher({ lang }: { lang: Locale }) {
-  const [selectedLang, setSelectedLang] = useState(lang);
-  const router = useRouter();
-  const pathname = usePathname();
-
+export function LangSwitcher() {
+  const { language, setLanguage } = useLanguage();
   const LANGS = Object.values(LANGUAGES);
 
   return (
@@ -31,7 +27,7 @@ export function LangSwitcher({ lang }: { lang: Locale }) {
           <Button variant="ghost" className="flex items-center gap-2">
             <Globe className="w-5 h-5" />
             <span>
-              {LANGS.find((l) => l.code === selectedLang)?.nativeName}
+              {LANGS.find((l) => l.code === language)?.nativeName}
             </span>
           </Button>
         </DropdownMenuTrigger>
@@ -39,13 +35,8 @@ export function LangSwitcher({ lang }: { lang: Locale }) {
           {LANGS.map((l) => (
             <DropdownMenuItem
               key={l.code}
-              onClick={() => {
-                setSelectedLang(l.code);
-                // Replace the lang in the pathname
-                const newPath = pathname.replace(/^\/[a-zA-Z-]+/, `/${l.code}`);
-                router.push(newPath);
-              }}
-              className={selectedLang === l.code ? "font-bold" : ""}
+              onClick={() => setLanguage(l.code)}
+              className={language === l.code ? "font-bold" : ""}
             >
               {l.flag} {l.nativeName}
             </DropdownMenuItem>
